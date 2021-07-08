@@ -1,10 +1,10 @@
-from flask import request, jsonify, make_response
-from __main__ import app
+from flask import request, jsonify, make_response, Blueprint
 from rung.controllers.user import create_user
-import uuid
+
+user_api = Blueprint("user_api", __name__, url_prefix='')
 
 
-@app.route("/setup/user", methods=["POST"])
+@user_api.route("/setup/user", methods=["POST"])
 def setup():
     data = request.get_json()
     user_params = {
