@@ -1,4 +1,4 @@
-from flask import request, jsonify
+from flask import request, jsonify, make_response
 from __main__ import app
 from rung.controllers.user import create_user
 import uuid
@@ -13,6 +13,6 @@ def setup():
         "verified": data["verified"],
         "device_id": data["device_id"]
     }
-    create_user(user_params)
-
-    return jsonify({"OK": "OK"})
+    user = create_user(user_params)
+    print(user)
+    return make_response(jsonify(user), 200)

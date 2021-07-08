@@ -16,5 +16,4 @@ def get_bot_number():
     increment_bot_number(1)
     read_filter = {}
     data = database.database_read_one(bot_number_collection, read_filter)
-    print("************************888888", data)
     return data["number"]
