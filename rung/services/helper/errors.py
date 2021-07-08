@@ -1,5 +1,6 @@
-from flask import jsonify, make_response
-from __main__ import app
+from flask import jsonify, make_response,Blueprint
+
+app = Blueprint("app", __name__, url_prefix='')
 
 
 class Error(Exception):
